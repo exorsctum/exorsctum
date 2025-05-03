@@ -6,4 +6,4 @@
 
 [<img width="100%" height="1" alt="🦑" src="https://gist.githubusercontent.com/lowlighter/3c6eaedf50273adfb7a510822672f570/raw/placeholder.svg">](#)
 
-[<img align="left" width="390" alt="🦑" src="https://raw.githubusercontent.com/exorsctum/exorsctum/master/achievements.svg">](#)
+<!--[<img align="left" width="390" alt="🦑" src="https://raw.githubusercontent.com/exorsctum/exorsctum/master/achievements.svg">](#)-->
