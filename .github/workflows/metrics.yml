@@ -24,7 +24,7 @@ jobs:
           plugin_anilist_sections: favorites, characters
           plugin_anilist_limit: 2
           plugin_anilist_limit_characters: 7
-          plugin_anilist_user: tahsi9
+          plugin_anilist_user: exorsctum
           plugin_music: no
           # plugin_music_limit: 3
           # plugin_music_mode: playlist
@@ -63,7 +63,7 @@ jobs:
           plugin_languages: yes
           plugin_languages_ignored: html, css, cmake
           plugin_languages_details: lines, bytes-size, percentage
-          #plugin_languages_sections: most-used, recently-used
+          plugin_languages_sections: most-used, recently-used
           plugin_languages_indepth: yes
           plugin_languages_limit: 2
           plugin_topics: yes
