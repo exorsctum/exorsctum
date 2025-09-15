@@ -88,15 +88,15 @@ jobs:
           plugin_repositories_order: featured, pinned, starred, random
           plugin_stars: yes
           plugin_stars_limit: 4
-          plugin_steam: yes
-          plugin_steam_achievements_limit: 2
-          plugin_steam_games_limit: 1
-          plugin_steam_playtime_threshold: 2
-          plugin_steam_recent_games_limit: 1
-          plugin_steam_sections: player, most-played, recently-played
-          plugin_steam_user: exorsctum
-          plugin_topics: yes
-          plugin_topics_limit: 15
-          plugin_topics_mode: starred
-          plugin_topics_sort: stars
-          plugin_traffic: yes
+          # plugin_steam: yes
+          # plugin_steam_achievements_limit: 2
+          # plugin_steam_games_limit: 1
+          # plugin_steam_playtime_threshold: 2
+          # plugin_steam_recent_games_limit: 1
+          # plugin_steam_sections: player, most-played, recently-played
+          # plugin_steam_user: exorsctum
+          # plugin_topics: yes
+          # plugin_topics_limit: 15
+          # plugin_topics_mode: starred
+          # plugin_topics_sort: stars
+          # plugin_traffic: yes
