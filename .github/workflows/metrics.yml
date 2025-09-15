@@ -8,6 +8,9 @@ on:
   schedule: [{cron: "0 16 * * *"}]
   # 💡 The following line lets you run workflow manually from the action tab!
   workflow_dispatch:
+  # ▶️ Run workflow when pushing on master
+  push:
+    branches: ["master"]
 jobs:
   metrics:
     runs-on: ubuntu-latest
