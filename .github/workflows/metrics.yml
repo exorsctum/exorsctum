@@ -21,7 +21,7 @@ jobs:
         uses: lowlighter/metrics@latest
         with:
           filename: medias.svg
-          METRICS_TOKEN: ${{ secrets.METRICS_TOKEN }}
+          token: ${{ METRICS_TOKEN }}
           base: ""
           config_order: anilist, music
           output_action: gist
@@ -37,7 +37,7 @@ jobs:
         uses: lowlighter/metrics@latest
         with:
           filename: achievements.svg
-          METRICS_TOKEN: ${{ secrets.METRICS_TOKEN }}
+          token: ${{ METRICS_TOKEN }}
           base: ""
           output_action: gist
           plugin_achievements: yes
@@ -49,7 +49,7 @@ jobs:
         uses: lowlighter/metrics@latest
         with:
           filename: general.svg
-          METRICS_TOKEN: ${{ secrets.METRICS_TOKEN }}
+          token: ${{ METRICS_TOKEN }}
           base: header
           base_indepth: yes
           config_order: base.header, isocalendar, languages, notable, discussions, topics
@@ -73,7 +73,7 @@ jobs:
         uses: lowlighter/metrics@latest
         with:
           filename: followup.svg
-          METRICS_TOKEN: ${{ secrets.METRICS_TOKEN }}
+          token: ${{ METRICS_TOKEN }}
           base: ""
           output_action: gist
           committer_gist: ${{ secrets.GIST }}
@@ -86,7 +86,7 @@ jobs:
         uses: lowlighter/metrics@latest
         with:
           filename: licenses.svg
-          METRICS_TOKEN: ${{ secrets.METRICS_TOKEN }}
+          token: ${{ METRICS_TOKEN }}
           base: ""
           output_action: gist
           committer_gist: ${{ secrets.GIST }}
@@ -98,7 +98,7 @@ jobs:
         uses: lowlighter/metrics@latest
         with:
           filename: habits.svg
-          METRICS_TOKEN: ${{ secrets.METRICS_TOKEN }}
+          token: ${{ METRICS_TOKEN }}
           base: ""
           output_action: gist
           committer_gist: ${{ secrets.GIST }}
@@ -111,7 +111,7 @@ jobs:
         uses: lowlighter/metrics@latest
         with:
           filename: stars.svg
-          METRICS_TOKEN: ${{ secrets.METRICS_TOKEN }}
+          token: ${{ METRICS_TOKEN }}
           base: ""
           output_action: gist
           committer_gist: ${{ secrets.GIST }}
