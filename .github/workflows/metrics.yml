@@ -39,6 +39,7 @@ jobs:
           plugin_music_time_range: short
           plugin_music_top_type: tracks
           plugin_music_user: ljyfdx9hjwipb49ot5dgkocvk
+          plugin_music_playlist: https://open.spotify.com/playlist/3jtRhVUiiVvAtW8pBDOMuQ?si=042f034d99514acf&pt=7db90843ab245f51dc10229a5a703d6c
 
 
       - name: 🦑 Achievements
