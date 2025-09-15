@@ -1,102 +1,160 @@
-# Visit https://github.com/lowlighter/metrics#-documentation for full reference
 name: Metrics
-on:
-  # Schedule updates (each hour)
-  schedule: [{cron: "0 * * * *"}]
-  # Lines below let you run workflow manually and on each commit
-  workflow_dispatch:
-  push: {branches: ["master", "main"]}
-jobs:
-  github-metrics:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - uses: lowlighter/metrics@latest
-        with:
-          # Your GitHub token
-          # The following scopes are required:
-          #  - public_access (default scope)
-          #  - repo
-          # The following additional scopes may be required:
-          #  - read:org      (for organization related metrics)
-          #  - read:user     (for user related data)
-          #  - read:packages (for some packages related data)
-          #  - repo          (optional, if you want to include private repositories)
-          token: ${{ secrets.METRICS_TOKEN }}
 
-          # Options
-          user: exorsctum
+on:
+  schedule:
+    - cron: "0 0 * * *"  # daily at 00:00 UTC
+  workflow_dispatch:
+  push:
+    branches: ["master"]
+
+permissions:
+  contents: write
+
+env:
+  # Fill these with your own values (non-sensitive)
+  METRICS_USER: ${{ github.repository_owner }}
+  ANILIST_USER: exorsctum
+  MUSIC_PROVIDER: spotify
+  MUSIC_USER: ljyfdx9hjwipb49ot5dgkocvk
+  PERSONALITY_URL: https://www.16personalities.com/profiles/c49c699f09e4c
+
+concurrency:
+  group: metrics
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Overview
+        uses: lowlighter/metrics@latest
+        with:
+          token: ${{ secrets.METRICS_TOKEN }}
+          user: ${{ env.METRICS_USER }}
           template: classic
           base: header, activity, community, repositories, metadata
-          config_octicon: yes
-          config_timezone: Asia/Dhaka
-          plugin_16personalities: yes
-          plugin_16personalities_scores: yes
-          plugin_16personalities_sections: personality
-          plugin_16personalities_url: https://www.16personalities.com/profiles/c49c699f09e4c
+          filename: github-metrics-overview.svg
+          config_timezone: UTC
+          committer_branch: master
+          # Plugins
           plugin_achievements: yes
-          plugin_achievements_display: detailed
-          plugin_achievements_secrets: yes
-          plugin_achievements_threshold: C
-          plugin_anilist: yes
-          plugin_anilist_limit: 2
-          plugin_anilist_limit_characters: 22
-          plugin_anilist_medias: anime
-          plugin_anilist_sections: favorites
-          plugin_anilist_shuffle: yes
-          plugin_anilist_user: exorsctum
-          plugin_calendar: yes
-          plugin_calendar_limit: 1
-          plugin_habits: yes
-          plugin_habits_charts_type: classic
-          plugin_habits_days: 14
-          plugin_habits_facts: yes
-          plugin_habits_from: 200
-          plugin_habits_languages_limit: 8
-          plugin_habits_languages_threshold: 0%
+          plugin_notable: yes
+          plugin_repositories: yes
+          plugin_repositories_pinned: yes
+          plugin_activity: yes
+          plugin_followup: yes
+          plugin_traffic: yes
+
+      - name: Activity
+        uses: lowlighter/metrics@latest
+        with:
+          token: ${{ secrets.METRICS_TOKEN }}
+          user: ${{ env.METRICS_USER }}
+          template: classic
+          base: header, metadata
+          filename: github-metrics-activity.svg
+          config_timezone: UTC
+          committer_branch: master
+          # Plugins
           plugin_isocalendar: yes
           plugin_isocalendar_duration: half-year
+          plugin_habits: yes
+          plugin_habits_charts: yes
+          plugin_habits_facts: yes
+          plugin_activity: yes
+          plugin_activity_days: 14
+          plugin_activity_filter: issue, pr, release, fork, push
+
+      - name: Languages
+        uses: lowlighter/metrics@latest
+        with:
+          token: ${{ secrets.METRICS_TOKEN }}
+          user: ${{ env.METRICS_USER }}
+          template: classic
+          base: header, metadata
+          filename: github-metrics-languages.svg
+          config_timezone: UTC
+          committer_branch: master
+          # Plugins
           plugin_languages: yes
-          plugin_languages_analysis_timeout: 15
-          plugin_languages_analysis_timeout_repositories: 7.5
-          plugin_languages_categories: markup, programming
-          plugin_languages_colors: github
-          plugin_languages_limit: 8
-          plugin_languages_recent_categories: markup, programming
+          plugin_languages_sections: most-used, recently-used
+          plugin_languages_details: percentage
           plugin_languages_recent_days: 14
           plugin_languages_recent_load: 300
-          plugin_languages_sections: most-used
-          plugin_languages_threshold: 0%
+          plugin_languages_indepth: yes
+          plugin_languages_limit: 12
+
+      - name: Lines of code
+        uses: lowlighter/metrics@latest
+        with:
+          token: ${{ secrets.METRICS_TOKEN }}
+          user: ${{ env.METRICS_USER }}
+          template: classic
+          base: header, metadata
+          filename: github-metrics-lines.svg
+          config_timezone: UTC
+          committer_branch: master
+          # Plugins
           plugin_lines: yes
-          plugin_lines_history_limit: 1
-          plugin_lines_repositories_limit: 4
-          plugin_lines_sections: base
-          plugin_music: yes
-          plugin_music_limit: 4
-          plugin_music_mode: top
-          plugin_music_provider: spotify
-          plugin_music_time_range: short
-          plugin_music_top_type: tracks
-          plugin_music_user: ljyfdx9hjwipb49ot5dgkocvk
-          plugin_notable: yes
-          plugin_notable_from: all
-          plugin_notable_indepth: yes
-          plugin_notable_repositories: yes
-          plugin_notable_types: commit
-          plugin_repositories: yes
-          plugin_repositories_order: featured, pinned, starred, random
+          plugin_lines_history_limit: 3
+          plugin_lines_repositories_limit: 6
+
+      - name: Stars and topics
+        uses: lowlighter/metrics@latest
+        with:
+          token: ${{ secrets.METRICS_TOKEN }}
+          user: ${{ env.METRICS_USER }}
+          template: classic
+          base: header, metadata
+          filename: github-metrics-stars.svg
+          config_timezone: UTC
+          committer_branch: master
+          # Plugins
+          plugin_topics: yes
+          plugin_topics_mode: icons
+          plugin_topics_limit: 20
           plugin_stars: yes
-          plugin_stars_limit: 4
-          # plugin_steam: yes
-          # plugin_steam_achievements_limit: 2
-          # plugin_steam_games_limit: 1
-          # plugin_steam_playtime_threshold: 2
-          # plugin_steam_recent_games_limit: 1
-          # plugin_steam_sections: player, most-played, recently-played
-          # plugin_steam_user: exorsctum
-          # plugin_topics: yes
-          # plugin_topics_limit: 15
-          # plugin_topics_mode: starred
-          # plugin_topics_sort: stars
-          # plugin_traffic: yes
+          plugin_stars_limit: 8
+
+      - name: Licenses
+        uses: lowlighter/metrics@latest
+        with:
+          token: ${{ secrets.METRICS_TOKEN }}
+          user: ${{ env.METRICS_USER }}
+          template: classic
+          base: header, metadata
+          filename: github-metrics-licenses.svg
+          config_timezone: UTC
+          committer_branch: master
+          # Plugins
+          plugin_licenses: yes
+          plugin_licenses_ratio: yes
+          plugin_licenses_legal: yes
+
+      - name: Social (AniList, Music, 16personalities)
+        uses: lowlighter/metrics@latest
+        with:
+          token: ${{ secrets.METRICS_TOKEN }}
+          user: ${{ env.METRICS_USER }}
+          template: classic
+          base: header, metadata
+          filename: github-metrics-social.svg
+          config_timezone: UTC
+          committer_branch: master
+          plugins_errors_fatal: no
+          # AniList
+          plugin_anilist: yes
+          plugin_anilist_user: ${{ env.ANILIST_USER }}
+          plugin_anilist_medias: anime, manga
+          plugin_anilist_sections: favorites, watching, reading
+          plugin_anilist_limit: 6
+          # Music (set provider and tokens in secrets)
+          plugin_music: yes
+          plugin_music_provider: ${{ env.MUSIC_PROVIDER }}
+          plugin_music_token: ${{ env.MUSIC_TOKEN }}
+          plugin_music_user: ${{ env.MUSIC_USER }}
+          plugin_music_mode: recent
+          plugin_music_limit: 6
+          # 16Personalities
+          plugin_16personalities: yes
+          plugin_16personalities_url: ${{ env.PERSONALITY_URL }}
