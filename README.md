@@ -1,24 +1,22 @@
+[
+  <img align="left" width="390" alt="Overview" src="/github-metrics-overview.svg">
+](#)
+[
+  <img align="right" width="390" alt="Social" src="/github-metrics-social.svg">
+](#)
+
+[
+  <img align="right" width="390" height="80" alt="🦑" src="https://gist.githubusercontent.com/lowlighter/3c6eaedf50273adfb7a510822672f570/raw/placeholder.svg">
+](#)
 
 
-<!-- Overview (full width) -->
-<div align="center">
-  <img src="/github-metrics-overview.svg" alt="Overview: achievements • notable • featured • activity" width="100%" />
-</div>
+[
+  <img align="left" width="390" alt="Stars & topics" src="/github-metrics-stars.svg">
+](#)
+[
+  <img align="right" width="390" alt="Languages" src="/github-metrics-languages.svg">
+](#)
 
-<!-- Grid row 1 -->
-<div align="center">
-  <img src="/github-metrics-activity.svg" alt="Activity: isometric calendar • habits • recent" width="49%" />
-  <img src="/github-metrics-languages.svg" alt="Languages: most‑used • recently‑used" width="49%" />
-</div>
-
-<!-- Grid row 2 -->
-<div align="center">
-  <img src="/github-metrics-lines.svg" alt="Lines of code changed" width="49%" />
-  <img src="/github-metrics-stars.svg" alt="Stars and topics (icons)" width="49%" />
-</div>
-
-<!-- Grid row 3 -->
-<div align="center">
-  <img src="/github-metrics-licenses.svg" alt="Repository licenses" width="49%" />
-  <img src="/github-metrics-social.svg" alt="AniList • Music • 16Personalities" width="49%" />
-</div>
+[
+  <img align="right" width="390" height="80" alt="🦑" src="https://gist.githubusercontent.com/lowlighter/3c6eaedf50273adfb7a510822672f570/raw/placeholder.svg">
+](#)

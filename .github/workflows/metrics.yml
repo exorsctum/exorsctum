@@ -5,12 +5,13 @@ on:
   workflow_dispatch:
   push: {branches: ["master", "main"]}
 jobs:
-  github-metrics:
+  metrics:
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
       - uses: lowlighter/metrics@latest
+        if: ${{ success() || failure() }}
         with:
           # Your GitHub token
           # The following scopes are required:
@@ -90,9 +91,9 @@ jobs:
 
       - name: Activity card
         uses: lowlighter/metrics@latest
+        if: ${{ success() || failure() }}
         with:
           token: ${{ secrets.METRICS_TOKEN }}
-          template: classic
           base: ""
           config_timezone: Asia/Dhaka
           filename: github-metrics-activity.svg
@@ -114,9 +115,9 @@ jobs:
 
       - name: Languages card
         uses: lowlighter/metrics@latest
+        if: ${{ success() || failure() }}
         with:
           token: ${{ secrets.METRICS_TOKEN }}
-          template: classic
           base: ""
           config_timezone: Asia/Dhaka
           filename: github-metrics-languages.svg
@@ -134,9 +135,9 @@ jobs:
 
       - name: Lines card
         uses: lowlighter/metrics@latest
+        if: ${{ success() || failure() }}
         with:
           token: ${{ secrets.METRICS_TOKEN }}
-          template: classic
           base: ""
           config_timezone: Asia/Dhaka
           filename: github-metrics-lines.svg
@@ -147,9 +148,9 @@ jobs:
 
       - name: Stars & topics card
         uses: lowlighter/metrics@latest
+        if: ${{ success() || failure() }}
         with:
           token: ${{ secrets.METRICS_TOKEN }}
-          template: classic
           base: ""
           config_timezone: Asia/Dhaka
           filename: github-metrics-stars.svg
@@ -161,9 +162,9 @@ jobs:
 
       - name: Licenses card
         uses: lowlighter/metrics@latest
+        if: ${{ success() || failure() }}
         with:
           token: ${{ secrets.METRICS_TOKEN }}
-          template: classic
           base: ""
           config_timezone: Asia/Dhaka
           filename: github-metrics-licenses.svg
@@ -173,9 +174,9 @@ jobs:
 
       - name: Social card (AniList + Music)
         uses: lowlighter/metrics@latest
+        if: ${{ success() || failure() }}
         with:
           token: ${{ secrets.METRICS_TOKEN }}
-          template: classic
           base: ""
           config_timezone: Asia/Dhaka
           filename: github-metrics-social.svg
@@ -183,7 +184,7 @@ jobs:
           plugin_anilist_limit: 2
           plugin_anilist_limit_characters: 22
           plugin_anilist_medias: anime
-          plugin_anilist_sections: favorites
+          plugin_anilist_sections: favorites, characters
           plugin_anilist_shuffle: yes
           plugin_anilist_user: exorsctum
           plugin_music: yes
