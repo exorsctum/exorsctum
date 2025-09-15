@@ -21,7 +21,7 @@ jobs:
         uses: lowlighter/metrics@latest
         with:
           filename: medias.svg
-          token: ${{ secrets.TOKEN }}
+          METRICS_TOKEN: ${{ secrets.METRICS_TOKEN }}
           base: ""
           config_order: anilist, music
           output_action: gist
@@ -37,10 +37,9 @@ jobs:
         uses: lowlighter/metrics@latest
         with:
           filename: achievements.svg
-          token: ${{ secrets.TOKEN }}
+          METRICS_TOKEN: ${{ secrets.METRICS_TOKEN }}
           base: ""
           output_action: gist
-          committer_gist: ${{ secrets.GIST }}
           plugin_achievements: yes
           plugin_achievements_display: compact
 
@@ -50,7 +49,7 @@ jobs:
         uses: lowlighter/metrics@latest
         with:
           filename: general.svg
-          token: ${{ secrets.TOKEN }}
+          METRICS_TOKEN: ${{ secrets.METRICS_TOKEN }}
           base: header
           base_indepth: yes
           config_order: base.header, isocalendar, languages, notable, discussions, topics
@@ -74,7 +73,7 @@ jobs:
         uses: lowlighter/metrics@latest
         with:
           filename: followup.svg
-          token: ${{ secrets.TOKEN }}
+          METRICS_TOKEN: ${{ secrets.METRICS_TOKEN }}
           base: ""
           output_action: gist
           committer_gist: ${{ secrets.GIST }}
@@ -87,7 +86,7 @@ jobs:
         uses: lowlighter/metrics@latest
         with:
           filename: licenses.svg
-          token: ${{ secrets.TOKEN }}
+          METRICS_TOKEN: ${{ secrets.METRICS_TOKEN }}
           base: ""
           output_action: gist
           committer_gist: ${{ secrets.GIST }}
@@ -99,7 +98,7 @@ jobs:
         uses: lowlighter/metrics@latest
         with:
           filename: habits.svg
-          token: ${{ secrets.TOKEN }}
+          METRICS_TOKEN: ${{ secrets.METRICS_TOKEN }}
           base: ""
           output_action: gist
           committer_gist: ${{ secrets.GIST }}
@@ -112,7 +111,7 @@ jobs:
         uses: lowlighter/metrics@latest
         with:
           filename: stars.svg
-          token: ${{ secrets.TOKEN }}
+          METRICS_TOKEN: ${{ secrets.METRICS_TOKEN }}
           base: ""
           output_action: gist
           committer_gist: ${{ secrets.GIST }}
