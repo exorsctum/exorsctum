@@ -39,7 +39,7 @@ jobs:
           plugin_music_limit: 4
           plugin_music_mode: playlist
           plugin_music_played_at: yes
-          plugin_music_playlist: https://open.spotify.com/playlist/3jtRhVUiiVvAtW8pBDOMuQ?si=LjgaK_SpRvGUgGK2h3egkg
+          plugin_music_playlist: https://open.spotify.com/playlist/3jtRhVUiiVvAtW8pBDOMuQ
           plugin_music_provider: spotify
           plugin_music_time_range: short
           plugin_music_top_type: tracks
@@ -91,6 +91,10 @@ jobs:
           plugin_topics_limit: 15
           plugin_topics_mode: icons
           plugin_topics_sort: stars
+          plugin_repositories: yes
+          plugin_repositories_featured: Calestians/astry
+          plugin_repositories_order: featured, pinned, starred, random
+          plugin_repositories_pinned: 2
 
       - name: 🦑 Follow-up
         if: ${{ success() || failure() }}
