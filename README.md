@@ -4,7 +4,7 @@
 
 [<img align="right" width="390" alt="Medias" src="assets/medias.svg">](#)
 
-[<img align="left" width="390" alt="Follow-up" src="assets/followup.svg">](#)
+<!--[<img align="left" width="390" alt="Follow-up" src="assets/followup.svg">](#) -->
 <!-- [<img width="100%" height="1" alt="divider" src="assets/placeholder.svg">](#) -->
 
 
