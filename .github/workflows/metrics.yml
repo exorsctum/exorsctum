@@ -94,10 +94,6 @@ jobs:
           plugin_repositories_featured: Calestians/astry
           plugin_repositories_order: featured, pinned, starred, random
           plugin_repositories_pinned: 2
-          plugin_16personalities: yes
-          plugin_16personalities_scores: yes
-          plugin_16personalities_sections: personality
-          plugin_16personalities_url: https://www.16personalities.com/profiles/c49c699f09e4c
 
       - name: 🦑 Follow-up
         if: ${{ success() || failure() }}
